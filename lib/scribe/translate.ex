@@ -1,11 +1,17 @@
 defmodule Scribe.Translate do
-  def run(markdown) do
+  def run(markdown_file) do
+    markdown_file
+    |> String.split("\n")
+    |> Enum.map(do_run &1 )
+    |> Enum.join("\n")
+  end
+
+  defp do_run(markdown) do
     markdown 
     |> get_markdown_symbol
     |> html_to_markdown
     |> translate
   end
-  
   
   def get_markdown_symbol(markdown) do
     cond do
@@ -14,6 +20,8 @@ defmodule Scribe.Translate do
         tag = String.strip(tag)
         text = String.strip(text)
         {:match, tag, text}
+      true ->
+        IO.puts inspect markdown
     end
   end
   
