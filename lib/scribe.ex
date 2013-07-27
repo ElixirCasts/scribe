@@ -1,0 +1,2 @@
+defmodule Scribe do
+end
