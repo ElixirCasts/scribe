@@ -2,7 +2,7 @@ defmodule Scribe.Translate do
   def run(markdown_file) do
     markdown_file
     |> String.split("\n")
-    |> Enum.map(do_run &1 )
+    |> Enum.map(do_run &1)
     |> Enum.join("\n")
   end
 

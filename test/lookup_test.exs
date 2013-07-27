@@ -15,4 +15,28 @@ defmodule LookupTest do
     assert markdown == heading
   end
 
+  test "Knows how to handle ###" do
+    markdown = Scribe.Lookup.markdown("###")
+    heading = "h3"
+    assert markdown == heading
+  end
+
+  test "Knows how to handle ####" do
+    markdown = Scribe.Lookup.markdown("####")
+    heading = "h4"
+    assert markdown == heading
+  end
+
+  test "Knows how to handle #####" do
+    markdown = Scribe.Lookup.markdown("#####")
+    heading = "h5"
+    assert markdown == heading
+  end
+
+  test "Knows how to handle ######" do
+    markdown = Scribe.Lookup.markdown("######")
+    heading = "h6"
+    assert markdown == heading
+  end
+
 end

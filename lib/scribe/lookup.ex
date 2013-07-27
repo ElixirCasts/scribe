@@ -1,9 +1,12 @@
 defmodule Scribe.Lookup do
-  def markdown("#") do
-    "h1"
-  end
+  @markdown_single_line [{"#", "h1"},
+                         {"##", "h2"},
+                         {"###", "h3"},
+                         {"####", "h4"},
+                         {"#####", "h5"},
+                         {"######", "h6"}]
 
-  def markdown("##") do
-    "h2"
+  def markdown(tag) do
+    @markdown_single_line[tag]
   end
 end
