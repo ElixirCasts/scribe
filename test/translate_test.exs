@@ -10,8 +10,8 @@ defmodule TranslateTest do
   end
 
    test "it handles multiline blocks of input" do
-    translated_markdown = Scribe.Translate.run("Hello World\n=====")
-    heading = "<h1>Hello World</h1>"
+    translated_markdown = Scribe.Translate.run("Hello World!\n=====")
+    heading = "<h1>Hello World!</h1>"
     assert translated_markdown == heading
   end
 

@@ -39,4 +39,15 @@ defmodule LookupTest do
     assert markdown == heading
   end
 
+  test "Knows how to handle =" do
+    markdown = Scribe.Lookup.markdown("======")
+    heading = "h1"
+    assert markdown == heading
+  end
+
+  test "Knows how to handle -" do
+    markdown = Scribe.Lookup.markdown("------")
+    heading = "h2"
+    assert markdown == heading
+  end
 end

@@ -7,4 +7,8 @@ defmodule Scribe.Lookup do
   def markdown("="<>_) do
     "h1"
   end
+
+  def markdown("-"<>_) do
+    "h2"
+  end
 end

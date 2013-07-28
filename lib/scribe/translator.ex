@@ -23,7 +23,7 @@ defmodule Scribe.Translator do
         tag = String.strip(tag)
         text = String.strip(text)
         {:match, tag, text, markdown}
-      Regex.match?(%r/=+/, h) ->
+      Regex.match?(%r/[=-]+/, h) ->
         tag = String.strip(h)
         [extracted_text] = t
         text = String.strip(extracted_text)
