@@ -50,4 +50,10 @@ defmodule LookupTest do
     heading = "h2"
     assert markdown == heading
   end
+
+  test "make unmarked sections a paragraph" do
+    markdown = Scribe.Lookup.markdown("")
+    heading = "p"
+    assert markdown == heading
+  end
 end

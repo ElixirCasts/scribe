@@ -11,4 +11,8 @@ defmodule Scribe.Lookup do
   def markdown("-"<>_) do
     "h2"
   end
+
+  def markdown("") do
+    "p"
+  end
 end

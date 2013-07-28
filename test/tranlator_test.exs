@@ -37,4 +37,10 @@ defmodule TranslatorTest do
     heading = {"<h2>Example</h2>", []}
     assert translated_markdown == heading
  end
+
+  test "it handles multi-line paragraphs headers" do
+    translated_markdown = Scribe.Translator.run(["", "World", "Hello"])
+    heading = {"<p>Hello\nWorld</p>", []}
+    assert translated_markdown == heading
+ end
 end

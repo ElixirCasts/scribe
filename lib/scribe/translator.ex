@@ -28,7 +28,9 @@ defmodule Scribe.Translator do
         [extracted_text] = t
         text = String.strip(extracted_text)
         {:match, tag, text, markdown}
-          
+      ("" == h) and (Enum.count(t) > 0) ->
+        processed_text = t |> Enum.reverse |> Enum.join("\n")
+        {:match, h, processed_text, markdown}
       true ->
         {:no_match, markdown}
     end
@@ -38,15 +40,15 @@ defmodule Scribe.Translator do
     {"<#{tag}>#{text}</#{tag}>", []}
   end
   
+  def translate({:no_match, context}) do
+    {"", context}
+  end
+  
   def html_to_markdown({:match, markdown_tag, text, context})  do
     html_tag =  Scribe.Lookup.markdown(markdown_tag)
     {:match, html_tag, text, context}
   end
 
-  def translate({:no_match, context}) do
-    {"", context}
-  end
-  
   def html_to_markdown({:no_match, context})  do
     {:no_match, context}
   end

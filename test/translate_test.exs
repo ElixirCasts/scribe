@@ -15,4 +15,9 @@ defmodule TranslateTest do
     assert translated_markdown == heading
   end
 
+   test "it handles several tags in a block of text" do
+    translated_markdown = Scribe.Translate.run("Hello World!\n=====\nExample\n")
+    heading = "<h1>Hello World!</h1>\n<p>Example</p>"
+    assert translated_markdown == heading
+  end
 end
