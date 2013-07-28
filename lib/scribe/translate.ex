@@ -1,6 +1,6 @@
 defmodule Scribe.Translate do
   def run(markdown_file) do
-    { :ok, pid } = :gen_server.start_link(Scribe.Translator, "", [])
+    { :ok, pid } = :gen_server.start_link(Scribe.Translator, [], [])
     processed_list = markdown_file
     |> String.split("\n")
 

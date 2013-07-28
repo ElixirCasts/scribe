@@ -4,4 +4,7 @@ defmodule Scribe.Lookup do
     "h#{String.length tag}"
   end
 
+  def markdown("="<>_) do
+    "h1"
+  end
 end
